@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+![https://ranbot.online](https://github.com/encoreshao/react-markdown-blog/blob/main/public/snippets.png)
+
 ## Features
 
 - Implementing Dark Mode
