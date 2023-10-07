@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Header from './components/Header';
+import Article from './components/Article';
+import Timeline from './components/Timeline';
+import { ThemeContext } from './contexts/theme-context';
+import cx from "classnames"
 
 function App() {
+  // Detecting the default theme
+  const isBrowserDefaultDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const getDefaultTheme = (): string => {
+    const localStorageTheme = localStorage.getItem('theme');
+    const browserDefault = isBrowserDefaultDark() ? 'dark' : 'light';
+    return localStorageTheme || browserDefault;
+  };
+  const [theme, setTheme] = useState(getDefaultTheme());
+
+  const myComponentStyle = { position: 'fixed', top: '70px', zIndex: 6 };
+  const filename = window.location.pathname === '/' ? 'javascript' : window.location.pathname.slice(1)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <div className={cx('app-root', `theme-${theme}`)}>
+        <Header />
+        <Timeline customStyle={myComponentStyle}/>
+        <Article filename={filename}/>
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
