@@ -63,7 +63,7 @@ console.log("Example output: ", currentTimes)
 ### Destructing Variable Assignment
 
 <Code language="javascript">
-let profile = ['Encore', 30, 'Techer'];
+let profile = ['Encore', 30, 'Software Engineer | Researcher'];
 let [name, age, job] = profile;
 console.log(name);
 // Encore
