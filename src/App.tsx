@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Article from './components/Article';
 import Timeline from './components/Timeline';
@@ -18,9 +18,13 @@ function App() {
   const myComponentStyle = { position: 'fixed', top: '70px', zIndex: 6 };
   const filename = window.location.pathname === '/' ? 'javascript' : window.location.pathname.slice(1)
 
+  useEffect(() => {
+     document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <div className={cx('app-root', `theme-${theme}`)}>
+      <div className={cx('app-root')}>
         <Header />
         <Timeline customStyle={myComponentStyle}/>
         <Article filename={filename}/>
