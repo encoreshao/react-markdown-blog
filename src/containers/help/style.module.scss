@@ -1,0 +1,14 @@
+.contactList {
+  margin-top: 3rem;
+  list-style-type: disc;
+
+  li {
+    line-height: 2rem;
+    height: 2rem;
+
+    span {
+      display: inline-block;
+      width: 10rem;
+    }
+  }
+}

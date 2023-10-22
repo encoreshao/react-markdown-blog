@@ -1,21 +1,26 @@
 import Markdown from "markdown-to-jsx"
 import { useEffect, useState } from "react"
-import Code from "./../Code";
+
 import cx from "classnames"
 import css from "./style.module.scss"
 
-const Article = (props: ArticleProps) => {
+import Code from "./../../components/Code";
+import { useParams } from "react-router-dom";
+
+const ArticleShow = () => {
+  let { filename } = useParams();
   const [postContent, setPostContent] = useState("");
-  const { filename } = props;
 
   useEffect(() => {
-    import(`./../../markdown/${filename}.md`)
-      .then(res => {
-        fetch(res.default)
-          .then(response => response.text())
-          .then(response => setPostContent(response))
-          .catch(err => console.log(err))
-      }).catch(err => console.log(err))
+    if (filename) {
+      import(`./../../markdown/${filename}.md`)
+        .then(res => {
+          fetch(res.default)
+            .then(response => response.text())
+            .then(response => setPostContent(response))
+            .catch(err => console.log(err))
+        }).catch(err => console.log(err))
+    }
   }, [filename]);
 
   return (
@@ -39,4 +44,4 @@ const Article = (props: ArticleProps) => {
   )
 }
 
-export default Article
+export default ArticleShow

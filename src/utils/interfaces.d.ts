@@ -4,5 +4,5 @@ interface CodeProps {
 }
 
 interface ArticleProps {
-  filename: string;
+  filename: string | undefined;
 }

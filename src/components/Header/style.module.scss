@@ -3,29 +3,57 @@
 .header {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 4.5rem;
-  box-shadow: 0 1px 1px rgba(0,0,0, 0.3);
+  left: 5rem;
   z-index: 6;
+  width: calc(100% - 5rem);
 
-  background: var(--background);
-  color: var(--text-primary);
+  height: 4.5rem;
+  line-height: 4.5rem;
+
+  box-shadow: 0 1px 1px hsl(var(--black));
+  background: hsl(var(--background));
 }
 
 .logoWrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   width: 100%;
 }
 
 .logo {
   display: flex;
   align-items: center;
+
   cursor: default;
 }
 
+.headerLink {
+  height: 4.5rem;
+  line-height: 4.5rem;
+
+  color: hsl(var(--text-primary));
+}
+
 .logoSpan {
-  margin-left: 0.5rem;
+  margin: 0 1.5rem;
+}
+
+.themeIconWrapper {
+  width: calc(5rem - 1em - 8px);
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.themeIconWrapper svg {
+  font-size: calc(var(--navbar-buttons) - 2rem);
+  fill: none;
+  cursor: pointer;
+
+  width: 2rem;
+  stroke: hsl(var(--text-primary));
 }

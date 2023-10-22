@@ -1,13 +1,15 @@
-# Useful Ruby On Rails Code Snippets
+### Useful Ruby On Rails Code Snippets
 
-### Generate secret code in Ruby on Rails
+- Ruby - Code Snippets
+
+**Generate secret code in Ruby on Rails**
 
 <Code language="javascript">
 [0] pry(main)> bundle exec rake app:secret
 => 0f3a7ebe0e46fd96ce83667fa0b203ac9caeee......
 </Code>
 
-### Generate random code in Ruby on Rails
+**Generate random code in Ruby on Rails**
 
 <Code language="javascript">
 [1] pry(main)> SecureRandom.hex(15)
@@ -17,12 +19,17 @@
 => "6de4730e-ea57-4717-af3c-6b7f543443b1"
 </Code>
 
-### use rails to generate migration files
+**Use rails to generate migration files**
 
-<Code language="javascript">
-[3] pry(main)> rails g model User name:string email:string 
+```ruby
+rails g model User name:string email:string
+rails g migration addAvatarToUsers avatar:string
+```
 
-[4] pry(main)> rails g migration addAvatarToUsers avatar:string
-</Code>
+**其他链接**
 
+- [Previous - Rails + NVM](rails5nvm)
+- [Next - Ruby on Rails](rubyonrails)
 
+<br />
+<br />

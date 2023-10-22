@@ -20,14 +20,18 @@ const Header = () => {
         <div className={cx(css.logoWrapper)}>
           <div className={cx(css.logo)}>
             <LogoIcon />
-            <span className={cx(css.logoSpan)}>Snippets</span>
+            <a href='/'className={cx(css.headerLink)}>
+              <span className={cx(css.logoSpan)}>
+                Snippets
+              </span>
+            </a>
           </div>
-          <button
+          <div
+            className={cx(css.themeIconWrapper)}
             onClick={handleThemeChange}
-            className="icon"
           >
             {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
-          </button>
+          </div>
         </div>
       </div>
     </header>
